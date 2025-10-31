@@ -86,3 +86,8 @@ Pour bien développer, il faut de bons outils. Parmi ceux-cis, il y a naturellem
 - Vous pouvez maintenant placer vos points d'arrêt
 
 Bon débogage
+
+## Sources
+
+© 2021 Exercism — MIT License.
+Source: Exercism JavaScript Track (exercism.org)
