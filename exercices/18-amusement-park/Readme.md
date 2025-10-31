@@ -1,0 +1,1 @@
+La documentation se trouve [ici](https://github.com/exercism/javascript/blob/main/exercises/concept/amusement-park/.docs)
