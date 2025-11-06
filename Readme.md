@@ -1,4 +1,4 @@
-# 🧪 Exercices JavaScript - Débutants (avec tests Vitest)
+# 🧪 Exercices JavaScript - Débutants (avec tests jest)
 
 Ce projet contient une série de petits exercices en **JavaScript moderne (ESM)**, conçus pour des **débutants complets**. Chaque exercice est accompagné de **tests unitaires** automatisés avec [jest](https://jestjs.io/), pour valider que la solution fonctionne correctement.
 
