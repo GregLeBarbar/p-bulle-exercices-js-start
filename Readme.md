@@ -1,6 +1,6 @@
 # 🧪 Exercices JavaScript - Débutants (avec tests Vitest)
 
-Ce projet contient une série de petits exercices en **JavaScript moderne (ESM)**, conçus pour des **débutants complets**. Chaque exercice est accompagné de **tests unitaires** automatisés avec [Vitest](https://vitest.dev/), pour valider que la solution fonctionne correctement.
+Ce projet contient une série de petits exercices en **JavaScript moderne (ESM)**, conçus pour des **débutants complets**. Chaque exercice est accompagné de **tests unitaires** automatisés avec [jest](https://jestjs.io/), pour valider que la solution fonctionne correctement.
 
 ---
 
@@ -9,7 +9,7 @@ Ce projet contient une série de petits exercices en **JavaScript moderne (ESM)*
 - Apprendre les bases de JavaScript (fonctions, conditions, chaînes, etc.)
 - Comprendre la syntaxe des modules ESM (`export` / `import`)
 - Écrire du code testable
-- Découvrir les tests unitaires avec Vitest
+- Découvrir les tests unitaires avec jest
 
 ---
 
@@ -17,19 +17,18 @@ Ce projet contient une série de petits exercices en **JavaScript moderne (ESM)*
 
 ```yaml
 exercices/
-├── 01-addition/
-├── 02-max/
-│ ├── max.js # Fichier à compléter
-│ └── max.test.js # Tests unitaires
-├── 03-isEven/
-├── 04-square/
-├── 05-reverse/
+├── amusement-park/
+│ ├── amusement-park.js # Fichier à compléter
+│ └── amusement-park.spec.js # Tests unitaires
+├── annalyns-infiltration/
+├── appointment-time/
+├── bird-watcher/
 ```
 
 Chaque dossier contient :
 
 - Un fichier `.js` avec l’énoncé en commentaire + une fonction à écrire
-- Un fichier `.test.js` avec des tests à passer
+- Un fichier `.spec.js` avec des tests à passer
 
 ---
 
