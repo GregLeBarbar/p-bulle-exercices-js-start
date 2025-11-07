@@ -71,7 +71,7 @@ Vitest exécutera tous les tests de chaque dossier.
 ## ✅ Lancer 1 test spécifique
 
 ```bash
-npm run test -- exercices/00-hello/00-hello.test.js
+npm run test -- exercices/00-hello/00-hello.spec.js
 ```
 
 ## Debugger
