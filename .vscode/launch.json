@@ -16,7 +16,7 @@
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "env": {
-        "NODE_OPTIONS": "--experimental-vm-modules"
+        "NODE_OPTIONS": "--experimental-vm-modules --localstorage-file=c:/temp/local.storage"
       },
       "disableOptimisticBPs": true
     }
