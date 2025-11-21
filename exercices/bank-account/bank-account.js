@@ -1,64 +1,36 @@
 //
-// Ceci est le fichier de l'exercice 'Bank Account'.
-// Il vous permet de gérer un compte bancaire simple avec ouverture, fermeture, dépôt et retrait.
+// This is only a SKELETON file for the 'Bank Account' exercise. It's been provided as a
+// convenience to get you started writing code faster.
 //
 
 export class BankAccount {
-  #balance = 0;
-  #open = false;
-
   constructor() {
-    // Le compte est initialement fermé et le solde à 0
-    this.#balance = 0;
-    this.#open = false;
+    throw new Error('Remove this line and implement the function');
   }
 
-  // Ouvre un compte si ce n'est pas déjà fait
   open() {
-    if (this.#open) {
-      throw new ValueError();
-    }
-    this.#open = true;
-    this.#balance = 0;
+    throw new Error('Remove this line and implement the function');
   }
 
-  // Ferme le compte et réinitialise le solde
   close() {
-    if (!this.#open) {
-      throw new ValueError();
-    }
-    this.#open = false;
-    this.#balance = 0;
+    throw new Error('Remove this line and implement the function');
   }
 
-  // Effectue un dépôt (montant positif uniquement)
-  deposit(amount) {
-    if (!this.#open || amount <= 0) {
-      throw new ValueError();
-    }
-    this.#balance += amount;
+  deposit() {
+    throw new Error('Remove this line and implement the function');
   }
 
-  // Effectue un retrait (montant positif et inférieur ou égal au solde)
-  withdraw(amount) {
-    if (!this.#open || amount <= 0 || amount > this.#balance) {
-      throw new ValueError();
-    }
-    this.#balance -= amount;
+  withdraw() {
+    throw new Error('Remove this line and implement the function');
   }
 
-  // Retourne le solde actuel si le compte est ouvert
   get balance() {
-    if (!this.#open) {
-      throw new ValueError();
-    }
-    return this.#balance;
+    throw new Error('Remove this line and implement the function');
   }
 }
 
-// Erreur personnalisée utilisée pour signaler les opérations invalides
 export class ValueError extends Error {
   constructor() {
-    super("Erreur de compte bancaire");
+    super('Bank account error');
   }
 }
