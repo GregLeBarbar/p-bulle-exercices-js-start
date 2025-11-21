@@ -3,6 +3,11 @@
 // convenience to get you started writing code faster.
 //
 
-export const gigasecond = () => {
-  throw new Error('Remove this line and implement the function');
+export const gigasecond = (date) => {
+  let gigaSeconds = date.getUTCSeconds() + 1e9;
+  let gigaDate = new Date();
+
+  gigaDate.setSeconds(gigaSeconds);
+
+  return gigaDate.toISOString();
 };
