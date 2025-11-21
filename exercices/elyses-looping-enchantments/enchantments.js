@@ -9,8 +9,14 @@
  * @returns {number} number of cards of a single type there are in the deck
  */
 export function cardTypeCheck(stack, card) {
-  // 🚨 Use .forEach
-  throw new Error('Implement the cardTypeCheck function');
+  let numberOfCards = 0;
+
+  stack.forEach((individualCard) => {
+    if (card == individualCard)
+      numberOfCards++;
+  });
+
+  return numberOfCards;
 }
 
 /**
@@ -21,6 +27,20 @@ export function cardTypeCheck(stack, card) {
  * @returns {number} number of cards that are either odd or even (depending on `type`)
  */
 export function determineOddEvenCards(stack, type) {
-  // 🚨 Use a `for...of` loop
-  throw new Error('Implement the determineOddEvenCards function');
+  let numberOfOddEvenCards = 0;
+
+  for (const card of stack) {
+    if (type)
+    {
+      if ((card % 2 == 1)) {
+        continue;
+      }
+    } else if (card % 2 == 0) {
+      continue;
+    }
+
+      numberOfOddEvenCards++;
+  }
+
+  return numberOfOddEvenCards;
 }
