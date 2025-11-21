@@ -4,5 +4,20 @@
 //
 
 export const hey = (message) => {
-  throw new Error('Remove this line and implement the function');
+  message = message.trim();
+
+  if (message.endsWith("?"))
+  {
+    if (message === message.toUpperCase() && (/[a-zA-z]/g).test(message)) {
+      return "Calm down, I know what I'm doing!";
+    } else {
+      return "Sure.";
+    }
+  } else if (message === message.toUpperCase() && (/[a-zA-z]/g).test(message)) {
+    return "Whoa, chill out!";
+  } else if (!(/[a-zA-z]/g).test(message) && !(/\d/).test(message)) {
+    return "Fine. Be that way!";
+  } else {
+    return "Whatever.";
+  }
 };
