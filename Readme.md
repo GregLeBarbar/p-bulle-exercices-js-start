@@ -78,11 +78,10 @@ npm run test -- exercices/00-hello/00-hello.spec.js
 
 Pour bien développer, il faut de bons outils. Parmi ceux-cis, il y a naturellement le debugger! Voici comment l'utiliser:
 
-- Dans VS Code, cliquez sur <img width="36" height="40" alt="image" src="https://github.com/user-attachments/assets/7856f283-ef56-4b7a-a663-ca71156413b5" />
-- Sélectionnez `Terminal de débogage JavaScript`
-- Placez-vous dans le dossier de votre exercice, par exemple `cd exercices\00-hello`
-- Lancez la commande `npx vitest 00-hello.test.js --inspect --no-file-parallelism --testTimeout=0`
-- Vous pouvez maintenant placer vos points d'arrêt
+- placer un point d'arret dans le fichier `exercices/lasagna/lasagna.js`
+- ouvrir le fichier `exercices/lasagna/lasagna.spec.js`
+- appuyer sur la touche f5
+- le debugger va s'arrêter sur votre point d'arret.
 
 Bon débogage
 
