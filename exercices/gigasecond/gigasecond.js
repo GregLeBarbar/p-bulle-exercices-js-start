@@ -4,10 +4,5 @@
 //
 
 export const gigasecond = (date) => {
-  let gigaSeconds = date.getUTCSeconds() + 1e9;
-  let gigaDate = new Date();
-
-  gigaDate.setSeconds(gigaSeconds);
-
-  return gigaDate.toISOString();
+  return new Date(date.getTime() + 1e12)
 };
