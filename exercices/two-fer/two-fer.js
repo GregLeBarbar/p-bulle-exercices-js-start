@@ -3,6 +3,16 @@
 // convenience to get you started writing code faster.
 //
 
-export const twoFer = () => {
-  throw new Error('Remove this line and implement the function');
+export const twoFer = (name) => {
+  let newName
+
+  if (name != null && name != undefined)
+  {
+    newName = name;
+  }
+  else {
+    newName = "you";
+  }
+
+  return "One for " + newName + ", one for me.";
 };
