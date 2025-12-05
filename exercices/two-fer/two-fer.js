@@ -4,15 +4,5 @@
 //
 
 export const twoFer = (name) => {
-  let newName
-
-  if (name != null && name != undefined)
-  {
-    newName = name;
-  }
-  else {
-    newName = "you";
-  }
-
-  return "One for " + newName + ", one for me.";
+  return `One for ${(name != null && name != undefined) ? name : "you"}, one for me.`;
 };
