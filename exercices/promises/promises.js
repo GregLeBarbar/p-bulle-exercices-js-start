@@ -3,22 +3,31 @@
 // convenience to get you started writing code faster.
 //
 
-export const promisify = () => {
-  throw new Error('Remove this line and implement the function');
+export const promisify = (givenFunction) => {
+  return (...args) =>
+    new Promise((resolve, reject) => {
+      givenFunction(...args, (error, result) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      });
+    });
 };
 
-export const all = () => {
-  throw new Error('Remove this line and implement the function');
+export const all = (promises) => {
+  throw new Error("Remove this line and implement the function");
 };
 
-export const allSettled = () => {
-  throw new Error('Remove this line and implement the function');
+export const allSettled = (promises) => {
+  throw new Error("Remove this line and implement the function");
 };
 
-export const race = () => {
-  throw new Error('Remove this line and implement the function');
+export const race = (promises) => {
+  throw new Error("Remove this line and implement the function");
 };
 
-export const any = () => {
-  throw new Error('Remove this line and implement the function');
+export const any = (promises) => {
+  throw new Error("Remove this line and implement the function");
 };
