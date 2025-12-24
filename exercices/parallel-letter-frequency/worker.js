@@ -1,21 +1,11 @@
-import { parallelLetterFrequency } from "./parallel-letter-frequency";
+import { parentPort, workerData } from "node:worker_threads";
 
-self.addEventListener("message", function (e) {
-  const [ParallelLetters, Letter] = [e.data[0], e.data[1]];
+const frequencies = {};
 
-  if (
-    ParallelLetters != undefined &&
-    ParallelLetters != null &&
-    Letter != undefined &&
-    Letter != null
-  ) {
-    if (
-      ParallelLetters[Letter] != undefined &&
-      ParallelLetters[Letter] != null
-    ) {
-      ParallelLetters[Letter]++;
-    } else {
-      ParallelLetters[Letter] = 1;
-    }
+for (const char of workerData.toLowerCase()) {
+  if (/\p{L}/u.test(char)) {
+    frequencies[char] = (frequencies[char] || 0) + 1;
   }
-}, false);
+}
+
+parentPort.postMessage(frequencies);
