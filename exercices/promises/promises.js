@@ -17,17 +17,104 @@ export const promisify = (givenFunction) => {
 };
 
 export const all = (promises) => {
-  throw new Error("Remove this line and implement the function");
+  if (promises === undefined) {
+    return Promise.resolve(undefined);
+  }
+
+  if (promises.length === 0) {
+    return Promise.resolve([]);
+  }
+
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let completed = 0;
+
+    promises.forEach((p, index) => {
+      Promise.resolve(p)
+        .then((value) => {
+          results[index] = value;
+          completed++;
+
+          if (completed === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch(reject);
+    });
+  });
 };
 
 export const allSettled = (promises) => {
-  throw new Error("Remove this line and implement the function");
+  if (promises === undefined) {
+    return Promise.resolve(undefined);
+  }
+
+  if (promises.length === 0) {
+    return Promise.resolve([]);
+  }
+
+  return new Promise((resolve) => {
+    const results = [];
+    let completed = 0;
+
+    promises.forEach((p, index) => {
+      Promise.resolve(p)
+        .then((value) => {
+          results[index] = value;
+        })
+        .catch((error) => {
+          results[index] = error;
+        })
+        .finally(() => {
+          completed++;
+          if (completed === promises.length) {
+            resolve(results);
+          }
+        });
+    });
+  });
 };
 
 export const race = (promises) => {
-  throw new Error("Remove this line and implement the function");
+  if (promises === undefined) {
+    return Promise.resolve(undefined);
+  }
+
+  if (promises.length === 0) {
+    return Promise.resolve([]);
+  }
+
+  return new Promise((resolve, reject) => {
+    promises.forEach((p) => {
+      Promise.resolve(p).then(resolve).catch(reject);
+    });
+  });
 };
 
 export const any = (promises) => {
-  throw new Error("Remove this line and implement the function");
+  if (promises === undefined) {
+    return Promise.resolve(undefined);
+  }
+
+  if (promises.length === 0) {
+    return Promise.resolve([]);
+  }
+
+  return new Promise((resolve, reject) => {
+    const errors = [];
+    let failedCount = 0;
+
+    promises.forEach((p, index) => {
+      Promise.resolve(p)
+        .then(resolve)
+        .catch((error) => {
+          errors[index] = error;
+          failedCount++;
+
+          if (failedCount === promises.length) {
+            reject(errors);
+          }
+        });
+    });
+  });
 };
