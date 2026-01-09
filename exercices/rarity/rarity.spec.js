@@ -23,6 +23,10 @@ describe("Weighted random", () => {
       expect(() => weightedRandom(nothing, normalWeight)).toThrow(ValueError);
     });
 
+    test("Cannot call the function if the total weight is 0", () => {
+      expect(() => weightedRandom(numbers, [0, 0, 0, 0, 0])).toThrow(ValueError);
+    });
+
     test("Cannot call the function with mismatched array length", () => {
       const longerWeight = [1, 2, 3, 4, 5, 6];
       const shorterWeight = [1, 2, 3];

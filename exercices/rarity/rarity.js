@@ -27,6 +27,11 @@ export function weightedRandom(items = "Empty", weights = "Empty") {
     total += weight;
   });
 
+  if (total == 0)
+  {
+    throw new ValueError("The total weight cannot be 0. Try again.");
+  }
+
   const randomWeight = Math.ceil(Math.random() * total);
 
   let cursor = 0;
