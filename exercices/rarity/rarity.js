@@ -15,3 +15,9 @@
 export function weightedRandom(items, weight) {
   throw new Error('Remove this line and implement the function');
 }
+
+export class ValueError extends Error {
+  constructor() {
+    super("Rarity error");
+  }
+}
