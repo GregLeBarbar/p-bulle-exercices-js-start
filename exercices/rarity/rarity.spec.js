@@ -18,6 +18,7 @@ describe("Weighted random", () => {
     test("Cannot call the function with any argument missing", () => {
       const normalWeight = [2, 8, 9, 5, 4];
       let nothing;
+
       expect(weightedRandom(names)).toThrow(ValueError);
       expect(weightedRandom(nothing, normalWeight)).toThrow(ValueError);
     });
@@ -26,6 +27,7 @@ describe("Weighted random", () => {
       const longerWeight = [1, 2, 3, 4, 5, 6];
       const shorterWeight = [1, 2, 3];
       const emptyWeight = [];
+
       expect(weightedRandom(numbers, longerWeight)).toThrow(ValueError);
       expect(weightedRandom(numbers, shorterWeight)).toThrow(ValueError);
       expect(weightedRandom(numbers, emptyWeight)).toThrow(ValueError);
