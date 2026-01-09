@@ -1,3 +1,7 @@
 export function headsOrTails() {
-  // Implement the return of a promise
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(Math.random() < 0.5);
+    }, 1000);
+  });
 }

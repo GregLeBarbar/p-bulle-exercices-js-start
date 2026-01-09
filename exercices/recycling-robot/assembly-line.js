@@ -4,7 +4,7 @@
 // the @ts-check directive. It will give you helpful autocompletion when
 // implementing this exercise.
 
-import { ElectronicDevice } from './lib.js';
+import { ElectronicDevice } from "./lib.js";
 
 /**
  * Checks if input is a boolean.
@@ -13,7 +13,7 @@ import { ElectronicDevice } from './lib.js';
  * @returns {boolean} whether the input is a boolean
  */
 export function isBoolean(value) {
-  throw new Error('Remove this line and implement the isBoolean function');
+  return typeof value == "boolean";
 }
 
 /**
@@ -23,7 +23,10 @@ export function isBoolean(value) {
  * @returns {boolean} whether the input is a finite number or bigint
  */
 export function isNumber(value) {
-  throw new Error('Remove this line and implement the isNumber function');
+  return (
+    (typeof value == "number" && !isNaN(value) && isFinite(value)) ||
+    typeof value == "bigint"
+  );
 }
 
 /**
@@ -33,7 +36,7 @@ export function isNumber(value) {
  * @returns {boolean} whether the input is an object.
  */
 export function isObject(value) {
-  throw new Error('Remove this line and implement the isObject function');
+  return typeof value == "object" && value != null;
 }
 
 /**
@@ -43,9 +46,7 @@ export function isObject(value) {
  * @returns {boolean} whether the input is a numeric string.
  */
 export function isNumericString(value) {
-  throw new Error(
-    'Remove this line and implement the isNumericString function',
-  );
+  return typeof value == "string" && value != "" && !isNaN(+value);
 }
 
 /**
@@ -55,7 +56,7 @@ export function isNumericString(value) {
  * @returns {boolean} whether the object is an instance of the `ElectronicDevice` class or one of its children.
  */
 export function isElectronic(object) {
-  throw new Error('Remove this line and implement the isElectronic function');
+  return object instanceof ElectronicDevice;
 }
 
 /**
@@ -65,8 +66,11 @@ export function isElectronic(object) {
  * @returns {boolean} whether the input is a non empty array.
  */
 export function isNonEmptyArray(value) {
-  throw new Error(
-    'Remove this line and implement the isNonEmptyArray function',
+  return (
+    typeof value == "object" &&
+    value != null &&
+    Array.isArray(value) &&
+    value.length > 0
   );
 }
 
@@ -77,7 +81,12 @@ export function isNonEmptyArray(value) {
  * @returns {boolean} whether the input is an empty array.
  */
 export function isEmptyArray(value) {
-  throw new Error('Remove this line and implement the isEmptyArray function');
+  return (
+    typeof value == "object" &&
+    value != null &&
+    Array.isArray(value) &&
+    value.length == 0
+  );
 }
 
 /**
@@ -87,7 +96,7 @@ export function isEmptyArray(value) {
  * @returns {boolean} whether the input has a "type" property or method.
  */
 export function hasType(object) {
-  throw new Error('Remove this line and implement the hasType function');
+  return "type" in object;
 }
 
 /**
@@ -97,7 +106,8 @@ export function hasType(object) {
  * @returns {never|void} undefined if the input has an "id" property or method, otherwise throws an error.
  */
 export function assertHasId(object) {
-  throw new Error('Remove this line and implement the assertHasId function');
+  if (!('id' in object))
+    throw new Error("Obstacle is missing the 'id' property");
 }
 
 /**
@@ -107,7 +117,7 @@ export function assertHasId(object) {
  * @returns {boolean} whether the input has an "id" property.
  */
 export function hasIdProperty(object) {
-  throw new Error('Remove this line and implement the hasIdProperty function');
+  return Object.hasOwn(object, 'id')
 }
 
 /**
@@ -117,5 +127,5 @@ export function hasIdProperty(object) {
  * @returns {boolean} whether the input has a defined "type" property.
  */
 export function hasDefinedType(object) {
-  throw new Error('Remove this line and implement the hasDefinedType function');
+  return Object.hasOwn(object, 'type') && typeof object.type != 'undefined';
 }

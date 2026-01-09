@@ -8,7 +8,7 @@
  */
 
 export function isValidCommand(command) {
-  throw new Error('Remove this line and implement the function');
+  return /^CHATBOT/i.test(command);
 }
 
 /**
@@ -18,7 +18,7 @@ export function isValidCommand(command) {
  * @returns {string} The message without the emojis encryption
  */
 export function removeEmoji(message) {
-  throw new Error('Remove this line and implement the function');
+  return message.replace(/emoji[0-9]+/g, '');
 }
 
 /**
@@ -28,7 +28,7 @@ export function removeEmoji(message) {
  * @returns {string} the Chatbot response to the phone Validation
  */
 export function checkPhoneNumber(number) {
-  throw new Error('Remove this line and implement the function');
+  return /\(\+[0-9]{2}\) [0-9]{3}-[0-9]{3}-[0-9]{3}/.test(number) ? "Thanks! You can now download me to your phone." : `Oops, it seems like I can't reach out to ${number}`;
 }
 
 /**
@@ -38,7 +38,7 @@ export function checkPhoneNumber(number) {
  * @returns {string[] | null} all the possible URL's that the user may have answered
  */
 export function getURL(userInput) {
-  throw new Error('Remove this line and implement the function');
+  return userInput.match(/[a-zA-Z0-9.]+\.[a-zA-Z]+/g);
 }
 
 /**
@@ -48,5 +48,5 @@ export function getURL(userInput) {
  * @returns {string} Greeting from the chatbot
  */
 export function niceToMeetYou(fullName) {
-  throw new Error('Remove this line and implement the function');
+  return "Nice to meet you, NAME NAME".replace(/NAME/, fullName.replace(/[a-zA-Z]+, /, '')).replace(/NAME/, fullName.replace(/, [a-zA-Z]+/, ''));
 }
