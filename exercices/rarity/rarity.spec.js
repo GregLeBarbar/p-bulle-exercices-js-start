@@ -2,7 +2,7 @@ import { describe, expect, test } from "@jest/globals";
 import { weightedRandom, ValueError } from "./rarity";
 
 describe("Weighted random", () => {
-  const NumberOfRetries = 10;
+  const NumberOfRetries = 100;
 
   const fruits = ["Apple", "Pear", "Banana", "Dragon Fruit", "Kiwi"];
   const names = ["Bob", "Steve", "Jonathan", "Mark", "Leo"];
@@ -11,16 +11,16 @@ describe("Weighted random", () => {
 
   describe("Error handling", () => {
     test("Cannot call the function with every argument missing", () => {
-      expect(weightedRandom([], [])).toThrow(ValueError);
-      expect(weightedRandom()).toThrow(ValueError);
+      expect(() => weightedRandom([], [])).toThrow(ValueError);
+      expect(() => weightedRandom()).toThrow(ValueError);
     });
 
     test("Cannot call the function with any argument missing", () => {
       const normalWeight = [2, 8, 9, 5, 4];
       let nothing;
 
-      expect(weightedRandom(names)).toThrow(ValueError);
-      expect(weightedRandom(nothing, normalWeight)).toThrow(ValueError);
+      expect(() => weightedRandom(names)).toThrow(ValueError);
+      expect(() => weightedRandom(nothing, normalWeight)).toThrow(ValueError);
     });
 
     test("Cannot call the function with mismatched array length", () => {
@@ -28,14 +28,14 @@ describe("Weighted random", () => {
       const shorterWeight = [1, 2, 3];
       const emptyWeight = [];
 
-      expect(weightedRandom(numbers, longerWeight)).toThrow(ValueError);
-      expect(weightedRandom(numbers, shorterWeight)).toThrow(ValueError);
-      expect(weightedRandom(numbers, emptyWeight)).toThrow(ValueError);
+      expect(() => weightedRandom(numbers, longerWeight)).toThrow(ValueError);
+      expect(() => weightedRandom(numbers, shorterWeight)).toThrow(ValueError);
+      expect(() => weightedRandom(numbers, emptyWeight)).toThrow(ValueError);
     });
 
     test("Giving the function a weight array that isn't a number array throws an error", () => {
       const stringWeight = ["1", "2", "3", "4", "5"];
-      expect(weightedRandom(countries, stringWeight)).toThrow(ValueError);
+      expect(() => weightedRandom(countries, stringWeight)).toThrow(ValueError);
     });
   });
 
@@ -45,8 +45,8 @@ describe("Weighted random", () => {
 
       const results = [0, 0, 0, 0, 0];
 
-      // Get the results of 10 times the normal amount of tests
-      for (let i = 0; i < NumberOfRetries * 10; i++) {
+      // Get the results of 100 times the normal amount of tests
+      for (let i = 0; i < NumberOfRetries * 100; i++) {
         let item = weightedRandom(names, weight);
 
         results[names.indexOf(item)]++;
@@ -77,8 +77,8 @@ describe("Weighted random", () => {
       }
     });
 
-    test("Setting every weight to a small number (1) except for 1 (500) returns the correct item", () => {
-      const riggedWeight = [1, 1, 1, 1, 500];
+    test("Setting every weight to a small number (1) except for 1 (50'000) returns the correct item", () => {
+      const riggedWeight = [1, 1, 1, 1, 50000];
 
       for (let i = 0; i < NumberOfRetries; i++) {
         // You would need to be incredibly unlucky if your function works and stil fail this test

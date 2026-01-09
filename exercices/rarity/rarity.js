@@ -9,11 +9,33 @@
  * The higher the weight value is, the more often it will be picked (probability)
  *
  * @param {any[]} items Any items
- * @param {number[]} weight Their weight
+ * @param {number[]} weights Their weight
  * @returns {any} The chosen item
  */
-export function weightedRandom(items, weight) {
-  throw new Error('Remove this line and implement the function');
+export function weightedRandom(items = "Empty", weights = "Empty") {
+  // Error handling
+  if (items == "Empty" || weights == "Empty" || items.length == 0 || weights.length == 0 || items.length != weights.length || typeof weights[0] != "number")
+  {
+    throw new ValueError("An argument (or both) are empty. Please try again.");
+  }
+
+  // Code
+
+  let total = 0;
+
+  weights.forEach((weight) => {
+    total += weight;
+  });
+
+  const randomWeight = Math.ceil(Math.random() * total);
+
+  let cursor = 0;
+  for (let i = 0; i < weights.length; i++) {
+    cursor += weights[i];
+    if (cursor >= randomWeight) {
+      return items[i];
+    }
+  }
 }
 
 export class ValueError extends Error {
